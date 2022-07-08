@@ -19,22 +19,84 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Title</h3>
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-                </button>
-            </div>
+                <button class="btn btn-primary float-right">Guardar Cambios</button>
             </div>
             <div class="card-body">
-
                 @foreach ($blog as $key => $value)
-                    {{$value["titulo"]}}
-                @endforeach
 
+                @endforeach
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                {{-- Dominio --}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Dominio</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="dominio" value="{{$value->dominio}}" required>
+                                </div>
+                                {{-- Servidor --}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Servidor</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="dominio" value="{{$value->servidor}}" required>
+                                </div>
+                                {{-- Titulo --}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Título</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="dominio" value="{{$value->titulo}}" required>
+                                </div>
+                                {{-- Descripcion --}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Descripción</span>
+                                    </div>
+                                    <textarea name="descripcion" class="form-control" rows="3" required>{{$value->descripcion}}</textarea>
+                                </div>
+                                <hr class="pb-2">
+                                {{-- Palabras Claves --}}
+                                <div class="form-group mb-3">
+                                    <label>Palabras Claves</label>
+                                    @php
+                                        $tags = json_decode($value->palabras_claves, true);
+                                        $palabras_claves="";
+                                        foreach ($tags as $key => $value) {
+                                            $palabras_claves .=$value. ",";
+                                        }
+                                    @endphp
+                                    <input type="text" class="form-control" name="palabras_claves" value="{{$palabras_claves}}" required>
+                                </div>
+                                <hr class="pb-2">
+                                {{-- Redes Sociales --}}
+                                <label>Redes Sociales</label>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Icono</span>
+                                            </div>
+                                            <select id="icono_red" class="form-control">
+                                                <option value="fab fa-facebook-f, #1475E0">facebook</option>
+                                                <option value="fab fa-facebook-f, #1475E0">instagram</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- /.card-body -->

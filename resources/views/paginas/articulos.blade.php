@@ -29,12 +29,16 @@
                 </button>
             </div>
             </div>
-            <div class="card-body">
-                @foreach ($articulos as $key => $value)
-                    {{$value}}
-                @endforeach
-            </div>
-
+            <ul>
+                <div class="card-body">
+                    @foreach ($articulos as $key => $value)
+                        <li>
+                            <h3>{{$value["titulo_articulo"]}}</h3>
+                            <h5>{{$value->categorias["titulo_categoria"]}}</h5>
+                        </li>
+                    @endforeach
+                </div>
+            </ul>
             <!-- /.card-body -->
             <div class="card-footer">
             Footer
