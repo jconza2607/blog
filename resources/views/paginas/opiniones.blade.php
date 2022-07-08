@@ -30,7 +30,9 @@
             </div>
             </div>
             <div class="card-body">
-            Start creating your amazing application!
+                @foreach ($opiniones as $key => $value)
+                    {{$value}}
+                @endforeach
             </div>
 
             <!-- /.card-body -->

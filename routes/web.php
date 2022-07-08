@@ -23,6 +23,14 @@ Route::view('/opiniones','paginas.opiniones');
 Route::view('/banner','paginas.banner');
 Route::view('/anuncios','paginas.anuncios');
 
+Route::resource('/','BlogController');
+Route::resource('/administradores','AdministradoresController');
+Route::resource('/anuncios', 'AnunciosController');
+Route::resource('/articulos', 'ArticulosController');
+Route::resource('/banner', 'BannerController');
+Route::resource('/categorias', 'CategoriasController');
+Route::resource('/opiniones', 'OpinionesController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

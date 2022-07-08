@@ -30,7 +30,9 @@
             </div>
             </div>
             <div class="card-body">
-            Start creating your amazing application!
+                @foreach ($administradores as $item)
+                    {{$item}}
+                @endforeach
             </div>
 
             <!-- /.card-body -->
